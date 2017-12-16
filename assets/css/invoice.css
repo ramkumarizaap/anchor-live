@@ -1,0 +1,65 @@
+/*.invoice-page{margin-top: 20px;margin-bottom: 40px;}
+.invoicetable td { padding: 5px; }
+h2{  color: #3c348d;
+    font-weight: bold;}
+.invoicetable h2, table.billing-cztm-t1.invoicetable + h2 {
+    color: #3c348d;
+    font-weight: bold;
+}
+table.billing-cztm-t1.invoicetable + h2 {
+    padding: 35px 0 10px 0;
+}
+.room-status tbody > tr:nth-child(odd), .all-feed-back tbody > tr:nth-child(odd), tbody.b-l-table-list tr:nth-child(odd) {
+    background: #fff;
+}
+
+.room-status tbody > tr:nth-child(even), .all-feed-back tbody > tr:nth-child(even), tbody.b-l-table-list tr:nth-child(even) {
+    background: rgb(227, 224, 255);
+}
+.inv_table{width: 100%;}
+.inv_table thead th{border: 1px solid black;}
+.inv_table:nth-child(2){ border-left: 1px solid black;border-right: 1px solid black;}
+.inv_table tr:nth-child(1){border: 1px solid black;}
+.billing-cztm-t1.invoicetable tbody tr:nth-child(-n+3) td {padding: 0;border: none;}
+.billing-cztm-t1.invoicetable tbody tr:nth-child(-n+3) td:first-child { padding-top: 10px; }
+.billing-cztm-t1.invoicetable tbody tr:nth-child(n+6) {
+    border: none !important;
+    background: #fff !important;
+    padding: 0 !important;
+}
+.billing-cztm-t1.invoicetable tbody tr:nth-child(n+6) td {border: none;}*/
+
+@media print {
+
+
+.invoicetable td { padding: 5px; }
+.invoicetable h2, table.billing-cztm-t1.invoicetable + h2 {
+    color: #3c348d;
+    font-weight: bold;
+}
+table.billing-cztm-t1.invoicetable + h2 {
+    padding: 35px 0 10px 0;
+}
+.room-status tbody > tr:nth-child(odd), .all-feed-back tbody > tr:nth-child(odd), tbody.b-l-table-list tr:nth-child(odd) {
+    background: #fff;
+}
+
+.room-status tbody > tr:nth-child(even), .all-feed-back tbody > tr:nth-child(even), tbody.b-l-table-list tr:nth-child(even) {
+    background: rgb(227, 224, 255);
+}
+.billing-cztm-t1.invoicetable tbody tr:nth-child(-n+3) td {
+    padding: 0;
+    border: none;
+}
+.billing-cztm-t1.invoicetable tbody tr:nth-child(-n+3) td:first-child { padding: 5px; }
+.billing-cztm-t1.invoicetable tbody tr:nth-child(-n+3) td:first-child h6 { padding-top: 12px; }
+.billing-cztm-t1.invoicetable tbody tr:nth-child(n+6) {
+    border: none !important;
+    background: #fff !important;
+    padding: 0 !important;
+}
+.billing-cztm-t1.invoicetable tbody tr:nth-child(n+6) td {
+    border: none;
+}
+
+}

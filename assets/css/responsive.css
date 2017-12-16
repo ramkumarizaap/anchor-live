@@ -1,0 +1,274 @@
+.booking-a-room,
+
+.booking-a-log,
+
+.marketing  {
+
+  background: #fff;
+
+  padding-bottom:55px;
+
+}
+
+.booking-a-room #pdfForm [type="submit"] { margin-top: 0; }
+
+select, .form-control, .select2-selection {
+
+    height: 34px !important;
+
+}
+
+body .contact-cztm input.form-control { height: 40px !important;}
+
+body .contact-cztm textarea.form-control { height: auto !important; }
+
+.check-in-out .col-sm-6 { padding: 3px; }
+
+.btn-primary:hover { background-color: #3c348d !important; border-color: #3c348d !important; }
+
+legend {
+
+  font-size:1em;
+
+  padding:0 5px;
+
+  font-weight:bold
+
+}
+
+.booking-a-log #simple_search_form {
+
+    background: #004FF9;  /* fallback for old browsers */
+
+background: -webkit-linear-gradient(to bottom, rgba(227, 30, 36, 0), #004FF9);  /* Chrome 10-25, Safari 5.1-6 */
+
+background: linear-gradient(to bottom, rgba(227, 30, 36, 0), #004FF9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+
+    border-radius: 5px 5px 0 0;
+
+    padding: 19px 15px;
+
+}
+
+form.operationForm {
+
+    background: #F0F0F0;
+
+    height: 108px;
+
+    padding: 0 17px;
+
+}
+
+form.operationForm fieldset {
+
+    padding-bottom: 12px;
+
+}
+
+form.operationForm fieldset .row {
+
+    padding: 0 10px;
+
+}
+
+#pdfForm {
+
+    background: #d2cccc;
+
+    padding: 30px;
+
+    border: 5px dashed #6d6b6b;
+
+    margin-bottom: 30px;
+
+}
+
+
+
+/* MEDIA QUERY BEGINES */
+
+@media (max-width: 1024){
+
+
+
+	.header .navbar-dark .navbar-nav li a.nav-link, .header .navbar-dark .navbar-nav li a {
+
+	    margin-right: 5px;
+
+	    padding-left: 10px !important;
+
+	    padding-right: 10px !important;
+
+	    font-size: 1em !important;
+
+	}
+
+
+
+}
+
+
+
+@media (min-width: 768px){
+
+div#navbarCollapse { flex-basis: auto;}
+
+
+}
+
+
+@media (max-width: 768px){
+
+.feedback-menu{position: fixed;top: 30%}
+.inner-page .page-title h1 { font-size: 1.6rem;}
+
+}
+
+
+@media (max-width: 767px){
+
+ nav.fixed-top {
+    position: relative;
+}   
+
+ul.navbar-nav li.nav-item ul{
+    position: relative important;
+    margin: 0 auto;
+}
+
+.navbar-dark .navbar-toggler {
+
+    color: #fff !important;
+
+    border-color: #222;
+
+    background: #222;
+
+}
+
+.srviceslink{pointer-events: none;}
+
+
+
+.navbar-dark .navbar-toggler-icon {
+
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(255, 255, 255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+
+}
+
+
+
+.header .navbar-expand-md .navbar-nav { 
+
+	float:none;
+
+	text-align: center;
+
+}
+
+
+
+.header .navbar-nav  li {
+
+	margin-bottom: 15px;
+
+}
+
+#pdfForm { display: block; margin-bottom: 15px; padding: 1px;}
+.booking-a-room form .col-sm-4, .booking-a-log form .col-sm-4 { margin-bottom: 5px;}
+.booking-a-room form.bookingForm [type=submit]{margin-top: 0;}
+.booking-a-room, .booking-a-log, .marketing{padding-bottom: 0;}
+.check-in-out.pad-top, .check-in-out.pad-bot { padding-top: 10px; padding-bottom: 10px;}
+body .dropzone{min-height:80px;}
+body .dropzone .dz-message { font-size: 14px; margin: 8px 0;}
+.contact-cztm button { margin-top: 0;}
+table.dataTable tbody th, table.dataTable tbody td {padding:2px 5px !important;  line-height: normal !important;}
+.pagination li a { padding: 0px 6px; font-size: 13px; text-shadow: none !important;}
+table.tableSite tbody > tr td, table.dataTable tbody th, table.dataTable tbody td { font-size: 12px;}
+.btn-div .margin-left-20 { margin-left: 6px;}
+.home-about, .home-facilities, .home-mail, .home-located-at{ padding: 35px 0;}
+.check-in-out .col-sm-6, .serch-cztm .col-sm-6, .b-chech-in-out .col-sm-6, .pdf-order .col-sm-6, .invoice-item .col-sm-6{padding-right: 0; padding-left:0; }
+table.dataTable thead tr > th:first-child { padding: 10px 11px; }
+.room-status-section table.dataTable thead th, body #room_status table.tableSite thead th{font-size: 12px !important; padding:5px;  line-height: normal;}
+body #room_status table.tableSite tbody > tr td {padding: 5px ;}
+}
+
+
+
+@media (min-width: 574px) and (max-width: 1200px){ 
+
+.b-chech-in-out .col-sm-4 {
+
+    min-width: 100%;
+
+}
+
+.pdf-order .col-sm-4 {
+
+    min-width: 100%;
+
+}
+
+}
+
+@media (min-width:574px) and (max-width:992px){
+
+.check-in-out legend {
+
+    font-size: 12px !important;
+
+    font-weight: bold;
+
+    color: #000 !important;
+
+}
+
+.check-in-out .col-sm-6 {
+
+    padding: 3px;
+
+}
+
+.b-chech-in-out .col-sm-6, .pdf-order .col-sm-6 {
+
+    padding: 2px;
+
+}
+
+.b-chech-in-out .col-sm-6 label, .pdf-order .col-sm-6 label {
+
+    font-size: 9px;
+
+}
+
+#date {
+
+    font-size: 9px;
+
+}
+
+#time {
+
+    font-size: 10px;
+
+}
+
+}
+
+@media (max-width:574px) {  
+
+.booking-a-room #pdfForm [type="submit"] {
+
+    margin-top: 8px;
+
+}
+
+.btn-div .margin-left-20 { margin-left: 5px;}
+.btn-div > a { font-size: 11px;}
+
+
+
+}
