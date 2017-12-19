@@ -133,6 +133,19 @@ class Booking_model extends App_model {
     }
 
 
+  public function sending_email()
+  {
+
+    $this->db->select('bookings.inv_no,bookings.officer_name,bookings.checkin_date');
+    $this->db->from('bookings'); 
+    $this->db->where('date(`checkin_date`) >= date(now()-interval 30 day)');
+    $where = '(checkout_date="" or invoice_link = "NULL")';
+    $this->db->where($where);        
+    $query = $this->db->get(); 
+     return $query->result_array();
+
+  }
+
    //  public function pending_list()
    // {
    //  $this->db->select('*');
