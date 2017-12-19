@@ -3,6 +3,7 @@
   <div class="row pad-bot">
     <div class="col-md-12">
       <button type="submit" class="pull-right btn btn-primary">Export Excel</button>
+      <a href="#" class="pull-right btn btn-primary margin-left-20" onclick="pending();" data-remodal-target="modal">Pending</a>
     </div>
     <input type="hidden" name="search_from_date" class="search_from_date">
     <input type="hidden" name="search_to_date" class="search_to_date">
@@ -13,6 +14,27 @@
     <input type="hidden" name="search_order_status" class="search_order_status">
     <input type="hidden" name="search_pdf_downloaded" class="search_pdf_downloaded">
   </div>
+
+
+   <!-- <div class="remodal" data-remodal-id="modal">
+ <a data-remodal-action="close" class="remodal-close"></a>
+ <div id="pending_room">
+
+   </div>
+ </div> -->
+
+ <div class="remodal" data-remodal-id="modal">
+
+  <a data-remodal-action="close" class="remodal-close"></a>
+
+  <div style="overflow-x:auto;" id="pending_room">
+ 
+</div>
+
+</div>
+
+
+
 </form>
   <form id="simple_search_form">
     <!-- /.row --> 

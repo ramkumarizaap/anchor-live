@@ -115,6 +115,36 @@ class Booking_model extends App_model {
       $q = $this->db->get();
       return $q->result_array();
     }
+
+
+
+   public function pending_list()
+   {
+    $this->db->select('bookings.id,bookings.`inv_no`,bookings.`po_no`,bookings.`officer_name`,bookings.`rank_id`,bookings.`executive_id`,bookings.`purpose`,bookings.`course_name`,bookings.`vessel_id`,bookings.`checkin_date`,bookings.`checkout_date`,bookings.`checked_in`,bookings.`checkout_date`,bookings.`no_of_days`,bookings.`occupancy`,bookings.`room_id`,bookings.`cost_centre`,bookings.`discount`,bookings.`invoice_amount`,rank.name as rankname,executives.name as executivename,vessels.name as vesselname,rooms.name as roomname,cost_centre.name as costcentre');
+    $this->db->from('bookings'); 
+    $this->db->join('rank', 'rank.id=bookings.rank_id');
+    $this->db->join('executives', 'executives.id=bookings.executive_id');
+    $this->db->join('vessels', 'vessels.id=bookings.vessel_id');
+    $this->db->join('rooms', 'rooms.id=bookings.room_id');
+    $this->db->join('cost_centre', 'cost_centre.id=bookings.cost_centre');
+    $this->db->where('bookings.invoice_link',NULL);        
+    $query = $this->db->get(); 
+     return $query->result_array();
+    }
+
+
+   //  public function pending_list()
+   // {
+   //  $this->db->select('*');
+   //  $this->db->from('bookings'); 
+   //  $this->db->join('rank', 'rank.id=bookings.rank_id');
+   //  $this->db->join('executives', 'executives.id=bookings.executive_id');
+   //  $this->db->where('bookings.invoice_link',NULL);        
+   //  $query = $this->db->get(); 
+   //   return $query->result_array();
+   //  }
+   
+    
     
 }
 ?>

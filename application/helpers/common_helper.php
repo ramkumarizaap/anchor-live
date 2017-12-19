@@ -450,7 +450,7 @@ function day_to_text($date) {
     return $day_array[$day_no];
 }
 
-
+/*
 function date_ranges($case = '')
 {
     $dt = date('Y-m-d');
@@ -625,7 +625,7 @@ function date_ranges($case = '')
 
         return array('highdateval' => $highdateval, 'lowdateval' => $lowdateval);
    }
-   
+   */
    
 function update_usermeta($key = '',$value = '',$user_id = '') {
     

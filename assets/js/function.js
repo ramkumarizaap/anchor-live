@@ -605,8 +605,6 @@ function capitaliseFirstLetter(string)
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-
-
 function genInvoice()
 {
   sel = $("select[name='order']").val();
@@ -755,5 +753,24 @@ function getSignature(id='')
 function init_signature()
 {
   $('#linear,#linear1').signaturePad({drawOnly:true, lineTop:0,penColour:"#000000"});
+}
+
+
+function pending()
+{
+  //alert(base_url+"booking/get_pending_records");
+  var pending="1";
+  $.ajax({
+        type:"POST",
+        url:base_url+"booking/get_pending_records",
+        data:{id:pending},
+        dataType:'json',
+        success:function(res)
+        {
+         // alert(res);
+      $("#pending_room").html(res.messages);
+        }
+     
+      });
 }
 
