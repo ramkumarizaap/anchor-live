@@ -148,18 +148,28 @@ class Taxi extends Admin_Controller
         }
 
         else
+         {
+          $find_id = $this->taxi_model->to_check();
+          $check_year=explode("-",$find_id->inv_no);
+          $current_year=date("Y");
+         if($check_year[1]!=$current_year)
+         {
+           $ins['inv_no']= "APH"."-".$current_year."-"."1";
+         }
+         else
+         {
+          $last_id=$check_year[2]+1;
+          $ins['inv_no']= "APH"."-".$current_year."-".$last_id;
+         }  
 
-        {
+         //  $ins['inv_no'] = get_invoicenum('taxi_booking'); //"APH-1718-INV-".rand(0,999);
 
-          $ins['inv_no'] = get_invoicenum('taxi_booking'); //"APH-1718-INV-".rand(0,999);
+           $ins['created_date'] = "2017-08-31 00:00:00"; //date("Y-m-d H:i:s");
+           $ins_id = $this->taxi_model->insert($ins,"taxi_booking");
 
-          $ins['created_date'] = "2017-08-31 00:00:00"; //date("Y-m-d H:i:s");
+         $this->invoice($ins_id);
 
-          $ins_id = $this->taxi_model->insert($ins,"taxi_booking");
-
-          $this->invoice($ins_id);
-
-	        $this->session->set_flashdata("success_msg","Taxi booked successfully.",TRUE);
+	         $this->session->set_flashdata("success_msg","Taxi booked successfully.",TRUE);
 
         }
 

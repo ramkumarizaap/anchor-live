@@ -185,6 +185,17 @@ class Taxi_model extends App_model {
 
     }
 
+
+  public function to_check()
+  {
+    $this->db->select('id,inv_no');
+    $this->db->from('taxi_booking');
+    $this->db->order_by('id', 'DESC');
+    $this->db->limit('1');
+    $query = $this->db->get(); 
+   return $query->row();
+  }
+
     
 
 }

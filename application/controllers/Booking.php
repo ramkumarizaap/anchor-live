@@ -123,10 +123,21 @@ class Booking extends Admin_Controller
   }
   else
   {
-
-          $ins['inv_no'] = get_invoicenum('bookings'); //"APH-1718-INV-".rand(1,999);
-
-          $ins_id = $this->booking_model->insert($ins,"bookings");
+          $find_id = $this->booking_model->to_check();
+          $check_year=explode("-",$find_id->inv_no);
+          $current_year=date("Y");
+         if($check_year[1]!=$current_year)
+         {
+           $ins['inv_no']= "APH"."-".$current_year."-"."1";
+         }
+         else
+         {
+          $last_id=$check_year[2]+1;
+          $ins['inv_no']= "APH"."-".$current_year."-".$last_id;
+         }
+          //$inv_no= "APH"."-".date("Y"); //"APH-1718-INV-".rand(1,999);
+          //print_r($inv_no); exit;           
+           $ins_id = $this->booking_model->insert($ins,"bookings");
 
           $this->session->set_flashdata("success_msg","Room booked successfully.",TRUE);
 
