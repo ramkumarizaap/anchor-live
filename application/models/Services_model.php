@@ -123,6 +123,22 @@ class Services_model extends App_model {
 
     }
 
+    function select_id()
+    {
+    $this->db->select('id');
+    $this->db->from('rooms');       
+    $query = $this->db->get(); 
+    return $query->result_array();
+    }
+
+    function record_update($id,$pid)
+    {
+
+        $this->db->where('id',$id);
+        $this->db->update('tbl_tickets',$data);
+    }
+
+
   }
 
 ?>

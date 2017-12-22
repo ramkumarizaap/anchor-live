@@ -471,6 +471,44 @@ class Services extends Admin_Controller
 
 
 
+  function get_page_id()
+      {
+   $sel = $this->services_model->select_id();
+
+  //  unset($pg_id[0]);
+   foreach($sel as $sel_id)
+   {
+   $aid = $sel_id['id'];
+   $pg_id = $this->input->post('id');
+   $ins_id = $this->services_model->record_update($aid,$pg_id);
+   }
+  // print_r($id); exit;
+  // $ins_id = $this->services_model->record_update($upd,$upd);
+   //print_r($pg_id); exit;
+
+   // for($n=1; $n<count($pg_id); $n++)
+   // {
+   //   $pos[]=$pg_id[$n];
+   // }
+   // print_r($pos);
+   
+     // if($dummyid=='1')
+     //  {
+     // // $this->data['pending_result']=$this->booking_model->get_where(array("invoice_link"=>NULL),"*","bookings")->result_array();
+     // // $output['messages'] = $this->load->view("frontend/roombooking/pending_invoice",$this->data,true);
+     // // $output['status'] = "success";
+     // // $this->_ajax_output($output,TRUE);
+
+     // $this->data['pending_result']=$this->booking_model->pending_list();
+     // $output['messages'] = $this->load->view("frontend/roombooking/pending_invoice",$this->data,true);
+     // $output['status'] = "success";
+     // $this->_ajax_output($output,TRUE);
+     //  }
+     
+   }
+
+
+
 }
 
 ?>

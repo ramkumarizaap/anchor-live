@@ -773,5 +773,39 @@ function pending()
      
       });
 }
+
 //$('tbody').sortable();
+
+
+$("tbody").sortable({
+  //var check= $(this).attr("data-id");
+  //alert(check);
+  update  : function(event, ui)
+  {
+  //check= $(this).attr("data-id");
+   //var page_id_array = new Array();
+  //alert(page_id_array);
+  var page_id_array = [];
+  i = 0;
+
+   $('.ui-sortable tr').each(function(){
+   //alert($(this).attr('id'));
+   //alert(page_id_array.push($(this).attr('id')));
+    page_id_array[i++] = $(this).attr('id');
+    //alert(page_id_array);
+   });
+   //alert(page_id_array);
+   $.ajax({
+        type:"POST",
+        url:base_url+"services/get_page_id",
+        data:{id:page_id_array},
+        dataType:'html',
+        success:function(data)
+        {
+         alert(data);
+        }
+     
+      });
+  }
+ });
 
