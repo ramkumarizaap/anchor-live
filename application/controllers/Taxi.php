@@ -149,25 +149,61 @@ class Taxi extends Admin_Controller
 
         else
          {
-          $find_id = $this->taxi_model->to_check();
-          $check_year=explode("-",$find_id->inv_no);
-          $current_year=date("Y");
-         if($check_year[1]!=$current_year)
+         //  $find_id = $this->taxi_model->to_check();
+         //  $check_year=explode("-",$find_id->inv_no);
+         //  $current_year=date("Y");
+         // if($check_year[1]!=$current_year)
+         // {
+         //   $ins['inv_no']= "APH"."-".$current_year."-"."1";
+         // }
+         // else
+         // {
+         //  $last_id=$check_year[2]+1;
+         //  $ins['inv_no']= "APH"."-".$current_year."-".$last_id;
+         // }  
+
+         //  $ins['inv_no'] = get_invoicenum('taxi_booking'); //"APH-1718-INV-".rand(0,999);
+
+          $current_year=date("Y-m-d");
+          $check_year=explode("-",$current_year);
+
+         if($check_year[1]=="03")
          {
-           $ins['inv_no']= "APH"."-".$current_year."-"."1";
+           $find_id = $this->taxi_model->to_check();
+           $last_id=$find_id->invoice_number;
+           $check_already_exists=explode("-",$last_id);
+           if($check_already_exists[2]=="03")
+           {
+          $last_id=$check_already_exists[3]+1;
+          $ins['invoice_number']= "APH"."-".$check_year[0]."-".$check_year[1]."-".$last_id;
+           }
+           else
+           {
+          $ins['invoice_number']= "APH"."-".$check_year[0]."-".$check_year[1]."-"."1";
+            }
          }
          else
          {
-          $last_id=$check_year[2]+1;
-          $ins['inv_no']= "APH"."-".$current_year."-".$last_id;
+           $find_id = $this->taxi_model->to_check();
+           $last_id=$find_id->invoice_number;
+           if($last_id!='')
+           {
+            $check_already_exists=explode("-",$last_id);
+            $last_id=$check_already_exists[3]+1;
+            $ins['invoice_number']= "APH"."-".$check_year[0]."-".$check_year[1]."-".$last_id;
+           }
+           else
+           {
+            $ins['invoice_number']= "APH"."-".$check_year[0]."-".$check_year[1]."-"."1";
+           }
+           
+          
          }  
-
-         //  $ins['inv_no'] = get_invoicenum('taxi_booking'); //"APH-1718-INV-".rand(0,999);
 
            $ins['created_date'] = "2017-08-31 00:00:00"; //date("Y-m-d H:i:s");
            $ins_id = $this->taxi_model->insert($ins,"taxi_booking");
 
-         $this->invoice($ins_id);
+            $this->invoice($ins_id);
 
 	         $this->session->set_flashdata("success_msg","Taxi booked successfully.",TRUE);
 

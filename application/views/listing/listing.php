@@ -222,7 +222,7 @@
 
 				?>
 
-			<tr id="<?php echo (isset($item['id']))?$item['id']:""; ?>" class="<?php echo $fridayrow;?>">
+			<tr data-posid="<?php echo (isset($item['pos_id']))?$item['pos_id']:""; ?>" id="<?php echo (isset($item['id']))?$item['id']:""; ?>" class="<?php echo $fridayrow;?>">
 
             <?php
 

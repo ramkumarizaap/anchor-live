@@ -794,7 +794,7 @@ $("tbody").sortable({
     page_id_array[i++] = $(this).attr('id');
     //alert(page_id_array);
    });
-   //alert(page_id_array);
+   //console.log(page_id_array);
    $.ajax({
         type:"POST",
         url:base_url+"services/get_page_id",
@@ -802,7 +802,9 @@ $("tbody").sortable({
         dataType:'html',
         success:function(data)
         {
-         alert(data);
+          alert(data);
+         // alert("Position Updated Successfully");
+         //refresh_grid();
         }
      
       });

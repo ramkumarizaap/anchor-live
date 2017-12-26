@@ -473,23 +473,35 @@ class Services extends Admin_Controller
 
   function get_page_id()
       {
-   $sel = $this->services_model->select_id();
-
-  //  unset($pg_id[0]);
-   foreach($sel as $sel_id)
+      
+   // $sel = $this->services_model->select_id();
+   // for($n=0; $n<count($sel); $n++)
+   // {
+   //   $id=$sel[$n];
+   //   $pos_id = array('pos_id' => $this->input->post('id')[$n]);
+   //   $this->services_model->update_position($id,$pos_id);
+   //   print_r($id); 
+   // }
+   // exit;
+   for($n=1; $n<count($this->input->post('id')); $n++)
    {
-   $aid = $sel_id['id'];
-   $pg_id = $this->input->post('id');
-   $ins_id = $this->services_model->record_update($aid,$pg_id);
-   }
+   $pos_id = $n; 
+   $id= array('pos_id' => $this->input->post('id')[$n]); 
+  $this->services_model->update_position($pos_id,$id);
+  }
+      //print_r($pos); exit;
+ 
+   // foreach($sel as $sel_id)
+   // {
+   // $aid = $sel_id['id'];
+   
+   // $ins_id = $this->services_model->record_update($aid,$pg_id);
+   // }
   // print_r($id); exit;
   // $ins_id = $this->services_model->record_update($upd,$upd);
    //print_r($pg_id); exit;
 
-   // for($n=1; $n<count($pg_id); $n++)
-   // {
-   //   $pos[]=$pg_id[$n];
-   // }
+   
    // print_r($pos);
    
      // if($dummyid=='1')

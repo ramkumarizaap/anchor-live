@@ -123,20 +123,63 @@ class Booking extends Admin_Controller
   }
   else
   {
-          $find_id = $this->booking_model->to_check();
-          $check_year=explode("-",$find_id->inv_no);
-          $current_year=date("Y");
-         if($check_year[1]!=$current_year)
+         //  $find_id = $this->booking_model->to_check();
+         //  $check_year=explode("-",$find_id->inv_no);
+         //  $current_year=date("Y");
+         // if($check_year[1]!=$current_year)
+         // {
+         //   $ins['inv_no']= "APH"."-".$current_year."-"."1";
+         // }
+         // else
+         // {
+         //  $last_id=$check_year[2]+1;
+         //  $ins['inv_no']= "APH"."-".$current_year."-".$last_id;
+         // }
+         //  //$inv_no= "APH"."-".date("Y"); //"APH-1718-INV-".rand(1,999);
+         //  //print_r($inv_no); exit;           
+         //   $ins_id = $this->booking_model->insert($ins,"bookings");
+
+         //  $this->session->set_flashdata("success_msg","Room booked successfully.",TRUE);
+
+          // $find_id = $this->booking_model->to_check();
+          // $check_year=explode("-",$find_id->inv_no);
+
+          $current_year=date("Y-m-d");
+          $check_year=explode("-",$current_year);
+
+         if($check_year[1]=="03")
          {
-           $ins['inv_no']= "APH"."-".$current_year."-"."1";
+           $find_id = $this->booking_model->to_check();
+           $last_id=$find_id->invoice_number;
+           $check_already_exists=explode("-",$last_id);
+           if($check_already_exists[2]=="03")
+           {
+          $last_id=$check_already_exists[3]+1;
+          $ins['invoice_number']= "APH"."-".$check_year[0]."-".$check_year[1]."-".$last_id;
+           }
+           else
+           {
+          $ins['invoice_number']= "APH"."-".$check_year[0]."-".$check_year[1]."-"."1";
+            }
          }
          else
          {
-          $last_id=$check_year[2]+1;
-          $ins['inv_no']= "APH"."-".$current_year."-".$last_id;
-         }
-          //$inv_no= "APH"."-".date("Y"); //"APH-1718-INV-".rand(1,999);
-          //print_r($inv_no); exit;           
+           $find_id = $this->booking_model->to_check();
+           $last_id=$find_id->invoice_number;
+           if($last_id!='')
+           {
+            $check_already_exists=explode("-",$last_id);
+            $last_id=$check_already_exists[3]+1;
+            $ins['invoice_number']= "APH"."-".$check_year[0]."-".$check_year[1]."-".$last_id;
+           }
+           else
+           {
+            $ins['invoice_number']= "APH"."-".$check_year[0]."-".$check_year[1]."-"."1";
+           }
+           
+          
+         }  
+         //print_r($ins); exit;        
            $ins_id = $this->booking_model->insert($ins,"bookings");
 
           $this->session->set_flashdata("success_msg","Room booked successfully.",TRUE);

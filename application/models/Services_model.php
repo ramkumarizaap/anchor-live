@@ -131,13 +131,18 @@ class Services_model extends App_model {
     return $query->result_array();
     }
 
-    function record_update($id,$pid)
+    function update_position($id,$pos)
     {
-
-        $this->db->where('id',$id);
-        $this->db->update('tbl_tickets',$data);
-    }
-
+      $this->db->where('id', $id);
+     $this->db->update('rooms', $pos);
+     // print_r($id); exit();
+     //echo "update rooms set pos_id='".$pos."' where id='".$id."' "; exit;
+    //   foreach($id as $aid)
+    //   {
+    //   $this->db->where('id', $aid);
+    //   $this->db->update('rooms', $pos);
+    // }
+      }
 
   }
 

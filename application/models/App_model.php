@@ -116,7 +116,7 @@ abstract class App_model extends CI_Model
     		log_message('debug', $this->db->last_query());
     	}
     
-    	return $this->db->affected_rows();
+    	return  $this->db->last_query();
     }
     
     

@@ -248,6 +248,6 @@ $config['services_rooms'] = array(
 					'status'=>array('name'=>'Status', 'data_type' => 'label', 'sortable' => FALSE, 'default_view'=>1,"width"=>"15"),
 					),
 	"default_order"	=> "id",
-	"default_direction" => "DESC"
+	"default_direction" => "ASC"
 );
 
