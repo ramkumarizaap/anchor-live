@@ -247,7 +247,7 @@ $config['services_rooms'] = array(
 					'tariff'=>array('name'=>'Tariff', 'data_type' => 'money', 'sortable' => FALSE, 'default_view'=>1,"width"=>"15"),
 					'status'=>array('name'=>'Status', 'data_type' => 'label', 'sortable' => FALSE, 'default_view'=>1,"width"=>"15"),
 					),
-	"default_order"	=> "id",
+	"default_order"	=> "pos_id",
 	"default_direction" => "ASC"
 );
 

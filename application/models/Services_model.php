@@ -65,7 +65,7 @@ class Services_model extends App_model {
     	$this->_fields = "*";
 
       $this->db->from('rooms');
-      $this->db->order_by('id ASC');
+      $this->db->order_by('pos_id ASC');
 
       return parent::listing();
 
@@ -131,18 +131,6 @@ class Services_model extends App_model {
     return $query->result_array();
     }
 
-    function update_position($id,$pos)
-    {
-      $this->db->where('id', $id);
-     $this->db->update('rooms', $pos);
-     // print_r($id); exit();
-     //echo "update rooms set pos_id='".$pos."' where id='".$id."' "; exit;
-    //   foreach($id as $aid)
-    //   {
-    //   $this->db->where('id', $aid);
-    //   $this->db->update('rooms', $pos);
-    // }
-      }
 
   }
 

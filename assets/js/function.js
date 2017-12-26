@@ -786,12 +786,12 @@ $("tbody").sortable({
    //var page_id_array = new Array();
   //alert(page_id_array);
   var page_id_array = [];
-  i = 0;
+  i = 1;
 
    $('.ui-sortable tr').each(function(){
    //alert($(this).attr('id'));
    //alert(page_id_array.push($(this).attr('id')));
-    page_id_array[i++] = $(this).attr('id');
+    page_id_array.push($(this).attr('id'));
     //alert(page_id_array);
    });
    //console.log(page_id_array);
@@ -802,8 +802,8 @@ $("tbody").sortable({
         dataType:'html',
         success:function(data)
         {
-          alert(data);
-         // alert("Position Updated Successfully");
+          //alert(data);
+         alert("Position Updated Successfully");
          //refresh_grid();
         }
      

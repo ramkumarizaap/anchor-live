@@ -156,10 +156,16 @@ class Booking extends Admin_Controller
            {
           $last_id=$check_already_exists[3]+1;
           $ins['invoice_number']= "APH"."-".$check_year[0]."-".$check_year[1]."-".$last_id;
+          $cur=date("y");
+          $next_year = date("y",strtotime("+1 year"));
+          $ins['inv_no']= "AP".$cur.$next_year."-".$last_id;
            }
            else
            {
           $ins['invoice_number']= "APH"."-".$check_year[0]."-".$check_year[1]."-"."1";
+          $cur=date("y");
+          $next_year = date("y",strtotime("+1 year"));
+          $ins['inv_no']= "AP".$cur.$next_year."-"."1";
             }
          }
          else
@@ -171,10 +177,16 @@ class Booking extends Admin_Controller
             $check_already_exists=explode("-",$last_id);
             $last_id=$check_already_exists[3]+1;
             $ins['invoice_number']= "APH"."-".$check_year[0]."-".$check_year[1]."-".$last_id;
+            $cur=date("y");
+            $next_year = date("y",strtotime("+1 year"));
+            $ins['inv_no']= "AP".$cur.$next_year."-".$last_id;
            }
            else
            {
             $ins['invoice_number']= "APH"."-".$check_year[0]."-".$check_year[1]."-"."1";
+            $cur=date("y");
+            $next_year = date("y",strtotime("+1 year"));
+            $ins['inv_no']= "AP".$cur.$next_year."-"."1";
            }
            
           
