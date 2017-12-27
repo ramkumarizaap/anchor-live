@@ -19,12 +19,14 @@ class Booking extends Admin_Controller
   }  
   public function index()
   {
+    
    redirect("booking/logs");
  }
 
  public function create($edit_id='')
 
  {
+
   $this->layout->set_title('Book A Room');
 
   if($edit_id)
@@ -145,51 +147,49 @@ class Booking extends Admin_Controller
           // $check_year=explode("-",$find_id->inv_no);
 
           $current_year=date("Y-m-d");
-          $check_year=explode("-",$current_year);
-
-         if($check_year[1]=="03")
-         {
-           $find_id = $this->booking_model->to_check();
-           $last_id=$find_id->invoice_number;
-           $check_already_exists=explode("-",$last_id);
-           if($check_already_exists[2]=="03")
-           {
-          $last_id=$check_already_exists[3]+1;
-          $ins['invoice_number']= "APH"."-".$check_year[0]."-".$check_year[1]."-".$last_id;
-          $cur=date("y");
           $next_year = date("y",strtotime("+1 year"));
-          $ins['inv_no']= "AP".$cur.$next_year."-".$last_id;
+          $check_year=explode("-",$current_year);
+          $find_id = $this->booking_model->to_check();
+          $last_id=$find_id->invoice_number;
+          $check_already_exists=explode("-",$last_id);
+         if($check_year[1]=="04")
+         {
+           if($check_already_exists[2]=="04")
+           {
+              $last_id=$check_already_exists[3]+1;
+              $ins['invoice_number']= "AP".$check_year[0]."-".$next_year."-".$last_id;
+              $cur=date("y");
+              $next_year = date("y",strtotime("+1 year"));
+              $ins['inv_no']= "AP".$cur.$next_year."-".$last_id;
            }
            else
            {
-          $ins['invoice_number']= "APH"."-".$check_year[0]."-".$check_year[1]."-"."1";
-          $cur=date("y");
-          $next_year = date("y",strtotime("+1 year"));
-          $ins['inv_no']= "AP".$cur.$next_year."-"."1";
-            }
-         }
-         else
+              $ins['invoice_number']= "AP".$check_year[0]."-".$next_year."-"."1";
+           }
+            $ins['invoice_number']= "APH"."-".$check_year[0]."-".$check_year[1]."-"."1";
+            $cur=date("y");
+            $next_year = date("y",strtotime("+1 year"));
+            $ins['inv_no']= "AP".$cur.$next_year."-"."1";
+          }
+          else
          {
-           $find_id = $this->booking_model->to_check();
-           $last_id=$find_id->invoice_number;
            if($last_id!='')
            {
-            $check_already_exists=explode("-",$last_id);
             $last_id=$check_already_exists[3]+1;
-            $ins['invoice_number']= "APH"."-".$check_year[0]."-".$check_year[1]."-".$last_id;
+            $ins['invoice_number']= "AP".$check_year[0]."-".$next_year."-".$last_id;
             $cur=date("y");
             $next_year = date("y",strtotime("+1 year"));
             $ins['inv_no']= "AP".$cur.$next_year."-".$last_id;
            }
            else
            {
-            $ins['invoice_number']= "APH"."-".$check_year[0]."-".$check_year[1]."-"."1";
+            $ins['invoice_number']= "AP".$check_year[0]."-".$next_year."-"."1";
+           }         
+            $ins['invoice_number']= "AP"."-".$check_year[0]."-".$check_year[1]."-"."1";
             $cur=date("y");
             $next_year = date("y",strtotime("+1 year"));
             $ins['inv_no']= "AP".$cur.$next_year."-"."1";
            }
-           
-          
          }  
          //print_r($ins); exit;        
            $ins_id = $this->booking_model->insert($ins,"bookings");
@@ -1076,16 +1076,16 @@ function ExtractTextFromPdf ($pdfdata)
          $to_email = "nirmalizaap@gmail.com"; 
    
          //Load email library
-    //      $config = Array(
-    //   'protocol' => 'smtp',
-    //   'smtp_host' => 'ssl://smtp.googlemail.com',
-    //   'smtp_port' => 465,
-    //   'smtp_user' => 'nirmalizaap@gmail.com', 
-    //   'smtp_pass' => 'passme123!@#', 
-    //   'mailtype' => 'html',
-    //   'charset' => 'iso-8859-1',
-    //   'wordwrap' => TRUE
-    // ); 
+      //      $config = Array(
+      //   'protocol' => 'smtp',
+      //   'smtp_host' => 'ssl://smtp.googlemail.com',
+      //   'smtp_port' => 465,
+      //   'smtp_user' => 'nirmalizaap@gmail.com', 
+      //   'smtp_pass' => 'passme123!@#', 
+      //   'mailtype' => 'html',
+      //   'charset' => 'iso-8859-1',
+      //   'wordwrap' => TRUE
+      // ); 
 
          $this->load->library('email'); 
          $this->email->from($from_email, 'Testing'); 
