@@ -471,7 +471,7 @@ class Services extends Admin_Controller
 
 
 
-  function get_page_id()
+  function change_position()
   {
     
    $roompos = $this->input->post('id');

@@ -18,7 +18,28 @@ $(window).scroll(function(){
 $(document).ready(function(){
 
 
-	//$('a,button').tooltip();
+$("tbody").sortable({
+  update  : function(event, ui)
+  {
+  var page_id_array = [];
+  i = 1;
+   $('.ui-sortable tr').each(function(){
+    page_id_array.push($(this).attr('id'));
+      });
+   $.ajax({
+        type:"POST",
+        url:base_url+"services/change_position",
+        data:{id:page_id_array},
+        dataType:'html',
+        success:function(data)
+        {
+          alert("Position Updated Successfully");
+        }
+     
+      });
+  }
+ });
+
 
    
  $('.datepicker').datepicker({
@@ -776,38 +797,4 @@ function pending()
 
 //$('tbody').sortable();
 
-
-$("tbody").sortable({
-  //var check= $(this).attr("data-id");
-  //alert(check);
-  update  : function(event, ui)
-  {
-  //check= $(this).attr("data-id");
-   //var page_id_array = new Array();
-  //alert(page_id_array);
-  var page_id_array = [];
-  i = 1;
-
-   $('.ui-sortable tr').each(function(){
-   //alert($(this).attr('id'));
-   //alert(page_id_array.push($(this).attr('id')));
-    page_id_array.push($(this).attr('id'));
-    //alert(page_id_array);
-   });
-   //console.log(page_id_array);
-   $.ajax({
-        type:"POST",
-        url:base_url+"services/get_page_id",
-        data:{id:page_id_array},
-        dataType:'html',
-        success:function(data)
-        {
-          //alert(data);
-         alert("Position Updated Successfully");
-         //refresh_grid();
-        }
-     
-      });
-  }
- });
 

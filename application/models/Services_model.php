@@ -65,8 +65,7 @@ class Services_model extends App_model {
     	$this->_fields = "*";
 
       $this->db->from('rooms');
-      $this->db->order_by('pos_id ASC');
-
+      // $this->db->order_by('pos_id ASC');
       return parent::listing();
 
     }
